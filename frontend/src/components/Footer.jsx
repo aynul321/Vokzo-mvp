@@ -64,15 +64,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-slate-400 text-sm">
                 <Mail className="w-4 h-4" />
-                <span>support@vokzo.com</span>
+                <a href="mailto:memonaynul2403@gmail.com" className="hover:text-white transition-colors">memonaynul2403@gmail.com</a>
               </li>
               <li className="flex items-center gap-2 text-slate-400 text-sm">
                 <Phone className="w-4 h-4" />
-                <span>+91 1800-XXX-XXXX</span>
+                <a href="tel:+918460768898" className="hover:text-white transition-colors">+91 8460768898</a>
               </li>
               <li className="flex items-start gap-2 text-slate-400 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Ahmedabad, Gujarat, India</span>
               </li>
             </ul>
           </div>
