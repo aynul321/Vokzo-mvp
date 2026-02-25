@@ -758,7 +758,88 @@ async def seed_data():
     # Create admin settings
     await db.admin_settings.insert_one({"commission_percentage": 15})
     
-    return {"message": "Data seeded successfully"}
+    # Create sample providers (5 per category = 30 total)
+    sample_providers = [
+        # Home Services - Plumber (5)
+        {"name": "Rajesh Kumar", "email": "rajesh.plumber@vokzo.com", "category": "home-services", "sub_service": "plumber", "exp": 8, "price": 350, "city": "Mumbai", "rating": 4.8, "reviews": 156},
+        {"name": "Suresh Sharma", "email": "suresh.plumber@vokzo.com", "category": "home-services", "sub_service": "plumber", "exp": 5, "price": 300, "city": "Delhi", "rating": 4.5, "reviews": 89},
+        {"name": "Amit Patel", "email": "amit.plumber@vokzo.com", "category": "home-services", "sub_service": "plumber", "exp": 12, "price": 450, "city": "Ahmedabad", "rating": 4.9, "reviews": 234},
+        {"name": "Vikram Singh", "email": "vikram.plumber@vokzo.com", "category": "home-services", "sub_service": "electrician", "exp": 6, "price": 400, "city": "Bangalore", "rating": 4.6, "reviews": 112},
+        {"name": "Deepak Verma", "email": "deepak.electrician@vokzo.com", "category": "home-services", "sub_service": "electrician", "exp": 10, "price": 500, "city": "Himatnagar", "rating": 4.7, "reviews": 98},
+        
+        # Appliance Services (5)
+        {"name": "Manoj Gupta", "email": "manoj.ac@vokzo.com", "category": "appliance-services", "sub_service": "ac-repair", "exp": 7, "price": 500, "city": "Chennai", "rating": 4.7, "reviews": 145},
+        {"name": "Ravi Yadav", "email": "ravi.ac@vokzo.com", "category": "appliance-services", "sub_service": "ac-repair", "exp": 4, "price": 400, "city": "Pune", "rating": 4.4, "reviews": 67},
+        {"name": "Sanjay Mishra", "email": "sanjay.fridge@vokzo.com", "category": "appliance-services", "sub_service": "fridge-repair", "exp": 9, "price": 450, "city": "Kolkata", "rating": 4.8, "reviews": 189},
+        {"name": "Prakash Joshi", "email": "prakash.washing@vokzo.com", "category": "appliance-services", "sub_service": "washing-machine", "exp": 6, "price": 400, "city": "Jaipur", "rating": 4.5, "reviews": 78},
+        {"name": "Anil Kumar", "email": "anil.ro@vokzo.com", "category": "appliance-services", "sub_service": "ro-service", "exp": 5, "price": 350, "city": "Mehsana", "rating": 4.6, "reviews": 92},
+        
+        # Tech Services (5)
+        {"name": "Rahul Desai", "email": "rahul.mobile@vokzo.com", "category": "tech-services", "sub_service": "mobile-repair", "exp": 5, "price": 300, "city": "Mumbai", "rating": 4.6, "reviews": 201},
+        {"name": "Karan Mehta", "email": "karan.laptop@vokzo.com", "category": "tech-services", "sub_service": "laptop-repair", "exp": 8, "price": 600, "city": "Bangalore", "rating": 4.8, "reviews": 167},
+        {"name": "Nikhil Reddy", "email": "nikhil.cctv@vokzo.com", "category": "tech-services", "sub_service": "cctv-install", "exp": 6, "price": 800, "city": "Hyderabad", "rating": 4.7, "reviews": 134},
+        {"name": "Arjun Nair", "email": "arjun.it@vokzo.com", "category": "tech-services", "sub_service": "it-support", "exp": 4, "price": 500, "city": "Chennai", "rating": 4.5, "reviews": 56},
+        {"name": "Vishal Shah", "email": "vishal.mobile@vokzo.com", "category": "tech-services", "sub_service": "mobile-repair", "exp": 3, "price": 250, "city": "Nadiad", "rating": 4.3, "reviews": 45},
+        
+        # Vehicle Services (5)
+        {"name": "Mohit Chauhan", "email": "mohit.bike@vokzo.com", "category": "vehicle-services", "sub_service": "bike-repair", "exp": 10, "price": 400, "city": "Delhi", "rating": 4.8, "reviews": 278},
+        {"name": "Gaurav Tiwari", "email": "gaurav.car@vokzo.com", "category": "vehicle-services", "sub_service": "car-repair", "exp": 12, "price": 800, "city": "Mumbai", "rating": 4.9, "reviews": 312},
+        {"name": "Ajay Rawat", "email": "ajay.car@vokzo.com", "category": "vehicle-services", "sub_service": "car-repair", "exp": 7, "price": 600, "city": "Ahmedabad", "rating": 4.6, "reviews": 145},
+        {"name": "Rohit Bhatt", "email": "rohit.towing@vokzo.com", "category": "vehicle-services", "sub_service": "towing", "exp": 8, "price": 1000, "city": "Pune", "rating": 4.7, "reviews": 89},
+        {"name": "Kunal Saxena", "email": "kunal.bike@vokzo.com", "category": "vehicle-services", "sub_service": "bike-repair", "exp": 5, "price": 350, "city": "Palanpur", "rating": 4.4, "reviews": 67},
+        
+        # Personal Services (5)
+        {"name": "Priya Sharma", "email": "priya.salon@vokzo.com", "category": "personal-services", "sub_service": "salon-home", "exp": 6, "price": 500, "city": "Mumbai", "rating": 4.9, "reviews": 245},
+        {"name": "Neha Kapoor", "email": "neha.makeup@vokzo.com", "category": "personal-services", "sub_service": "makeup", "exp": 8, "price": 2000, "city": "Delhi", "rating": 4.8, "reviews": 189},
+        {"name": "Anjali Singh", "email": "anjali.salon@vokzo.com", "category": "personal-services", "sub_service": "salon-home", "exp": 4, "price": 400, "city": "Bangalore", "rating": 4.6, "reviews": 112},
+        {"name": "Vikash Pandey", "email": "vikash.fitness@vokzo.com", "category": "personal-services", "sub_service": "fitness", "exp": 7, "price": 800, "city": "Chennai", "rating": 4.7, "reviews": 156},
+        {"name": "Pooja Deshmukh", "email": "pooja.makeup@vokzo.com", "category": "personal-services", "sub_service": "makeup", "exp": 5, "price": 1500, "city": "Anand", "rating": 4.5, "reviews": 78},
+        
+        # Local Services (5)
+        {"name": "Dr. Sandeep Jain", "email": "sandeep.tutor@vokzo.com", "category": "local-services", "sub_service": "tutor", "exp": 10, "price": 600, "city": "Delhi", "rating": 4.9, "reviews": 234},
+        {"name": "Ramesh Packers", "email": "ramesh.movers@vokzo.com", "category": "local-services", "sub_service": "movers", "exp": 15, "price": 5000, "city": "Mumbai", "rating": 4.7, "reviews": 312},
+        {"name": "Shikha Agarwal", "email": "shikha.tutor@vokzo.com", "category": "local-services", "sub_service": "tutor", "exp": 6, "price": 500, "city": "Kolkata", "rating": 4.6, "reviews": 145},
+        {"name": "Event Pro", "email": "eventpro@vokzo.com", "category": "local-services", "sub_service": "event-support", "exp": 8, "price": 3000, "city": "Bangalore", "rating": 4.8, "reviews": 89},
+        {"name": "Quick Movers", "email": "quickmovers@vokzo.com", "category": "local-services", "sub_service": "movers", "exp": 10, "price": 4000, "city": "Junagadh", "rating": 4.5, "reviews": 67}
+    ]
+    
+    for p in sample_providers:
+        user_id = str(uuid.uuid4())
+        provider_id = str(uuid.uuid4())
+        
+        # Create user account for provider
+        user_doc = {
+            "id": user_id,
+            "full_name": p["name"],
+            "email": p["email"],
+            "password": get_password_hash("provider123"),
+            "role": "provider",
+            "city": p["city"],
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        await db.users.insert_one(user_doc)
+        
+        # Create provider profile
+        provider_doc = {
+            "id": provider_id,
+            "user_id": user_id,
+            "full_name": p["name"],
+            "email": p["email"],
+            "category_id": p["category"],
+            "sub_service_id": p["sub_service"],
+            "experience": p["exp"],
+            "base_price": p["price"],
+            "rating": p["rating"],
+            "total_reviews": p["reviews"],
+            "is_verified": True,
+            "is_approved": True,
+            "is_online": True,
+            "city": p["city"],
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+        await db.providers.insert_one(provider_doc)
+    
+    return {"message": "Data seeded successfully with 30 sample providers"}
 
 # Include router
 app.include_router(api_router)
