@@ -1,34 +1,136 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* VOKZO Custom Styles */
+
+/* Hero Section */
+.hero-gradient {
+    background: linear-gradient(135deg, #1E3A8A 0%, #3b82f6 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+/* Service Category Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+@media (min-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
 }
 
-.App-link {
-    color: #61dafb;
+/* Provider List */
+.provider-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
+@media (min-width: 768px) {
+    .provider-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-    to {
-        transform: rotate(360deg);
-    }
+}
+
+/* Status Badge */
+.status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-pending {
+    @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-accepted {
+    @apply bg-blue-100 text-blue-800;
+}
+
+.status-completed {
+    @apply bg-green-100 text-green-800;
+}
+
+.status-rejected {
+    @apply bg-red-100 text-red-800;
+}
+
+/* Rating Stars */
+.rating-star {
+    @apply w-4 h-4 fill-yellow-400 text-yellow-400;
+}
+
+/* Verified Badge */
+.verified-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-xs font-medium;
+}
+
+/* Online Status */
+.online-dot {
+    @apply w-2 h-2 rounded-full bg-green-500 animate-pulse;
+}
+
+.offline-dot {
+    @apply w-2 h-2 rounded-full bg-slate-400;
+}
+
+/* Empty State */
+.empty-state {
+    @apply flex flex-col items-center justify-center py-16 text-center;
+}
+
+/* Loading Skeleton */
+.skeleton {
+    @apply bg-slate-200 rounded animate-pulse;
+}
+
+/* Mobile Touch Target */
+.touch-target {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Tab Navigation */
+.tab-active {
+    @apply text-[#1E3A8A] border-b-2 border-[#1E3A8A];
+}
+
+.tab-inactive {
+    @apply text-slate-500 hover:text-slate-700;
+}
+
+/* Dashboard Stats Card */
+.stat-card {
+    @apply bg-white rounded-xl p-6 border border-slate-100 shadow-sm;
+}
+
+/* Booking Card */
+.booking-card {
+    @apply bg-white rounded-xl p-4 border border-slate-200 shadow-sm;
+}
+
+/* Action Buttons */
+.action-accept {
+    @apply bg-green-500 hover:bg-green-600 text-white;
+}
+
+.action-reject {
+    @apply bg-red-500 hover:bg-red-600 text-white;
+}
+
+.action-complete {
+    @apply bg-blue-500 hover:bg-blue-600 text-white;
+}
+
+/* Transition Classes */
+.transition-smooth {
+    @apply transition-all duration-200 ease-out;
+}
+
+/* Focus States */
+.focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-[#1E3A8A] focus:ring-offset-2;
 }
