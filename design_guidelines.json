@@ -1,0 +1,119 @@
+{
+  "project_name": "VOKZO",
+  "design_philosophy": {
+    "identity": "The Anti-AI Designer (E1)",
+    "core_principles": [
+      "Mobile-First Obsession: Touch targets > 44px, bottom navigation for primary actions.",
+      "Trust through Clarity: No hidden fees, big prices, verified badges prominent.",
+      "The 'Uber' Standard: Minimalist cards, map-based or location-aware context.",
+      "Contrast is King: Deep Blue text on white/slate-50 backgrounds. Orange only for 'Book' actions."
+    ],
+    "hall_of_shame": [
+      "No gradient buttons (Use solid Orange or Blue).",
+      "No 'Inter' for Headings (Use Poppins).",
+      "No 'Card' overuse (Use flat lists with separators for mobile density)."
+    ]
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Poppins, sans-serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-4xl md:text-5xl font-bold tracking-tight",
+      "h2": "text-3xl md:text-4xl font-semibold tracking-tight",
+      "h3": "text-2xl font-semibold",
+      "h4": "text-xl font-medium",
+      "body_lg": "text-lg leading-relaxed",
+      "body_base": "text-base leading-relaxed text-slate-600",
+      "caption": "text-sm text-slate-500 font-medium uppercase tracking-wide"
+    }
+  },
+  "colors": {
+    "primary": {
+      "DEFAULT": "#1E3A8A",
+      "foreground": "#FFFFFF",
+      "50": "#eff6ff",
+      "100": "#dbeafe",
+      "500": "#3b82f6",
+      "900": "#1E3A8A"
+    },
+    "accent": {
+      "DEFAULT": "#F97316",
+      "foreground": "#FFFFFF",
+      "hover": "#ea580c"
+    },
+    "background": {
+      "DEFAULT": "#F8FAFC",
+      "paper": "#FFFFFF",
+      "subtle": "#F1F5F9"
+    },
+    "text": {
+      "main": "#0F172A",
+      "muted": "#64748B",
+      "inverted": "#FFFFFF"
+    },
+    "status": {
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444"
+    }
+  },
+  "layout_strategies": {
+    "mobile_container": "px-4 py-6 max-w-md mx-auto md:max-w-none md:px-0",
+    "desktop_container": "max-w-7xl mx-auto px-6 lg:px-8",
+    "bento_grid": "grid grid-cols-2 md:grid-cols-4 gap-4",
+    "section_spacing": "py-12 md:py-20"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#1E3A8A] text-white hover:bg-[#172554] rounded-full px-8 py-3 font-medium transition-transform active:scale-95 shadow-lg shadow-blue-900/20",
+      "secondary": "bg-white text-[#1E3A8A] border border-[#1E3A8A]/20 hover:bg-slate-50 rounded-full px-8 py-3 font-medium transition-all",
+      "cta": "bg-[#F97316] text-white hover:bg-[#ea580c] rounded-full px-8 py-4 text-lg font-bold shadow-xl shadow-orange-500/20"
+    },
+    "cards": {
+      "service_card": "bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all p-4 flex flex-col items-center text-center gap-3",
+      "provider_card": "bg-white rounded-xl border border-slate-200 p-5 flex gap-4 items-start shadow-sm",
+      "booking_summary": "bg-slate-50 rounded-xl p-6 border border-slate-200"
+    },
+    "inputs": {
+      "default": "h-12 rounded-xl border-slate-200 focus:border-[#1E3A8A] focus:ring-[#1E3A8A]/20 bg-white"
+    }
+  },
+  "visual_assets": {
+    "image_urls": {
+      "hero_bg": "https://images.unsplash.com/photo-1742090886514-acd9581094df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjB1cmJhbiUyMGNpdHklMjBza3lsaW5lJTIwbWluaW1hbGlzdHxlbnwwfHx8fDE3NzIwMDA4MTl8MA&ixlib=rb-4.1.0&q=85",
+      "categories": {
+        "plumbing": "https://images.pexels.com/photos/8486928/pexels-photo-8486928.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "electrical": "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "cleaning": "https://images.pexels.com/photos/6196694/pexels-photo-6196694.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      },
+      "placeholders": {
+        "user_avatar": "https://images.unsplash.com/photo-1599463698367-11cb72775b67?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwbHVtYmVyJTIwd29ya2luZyUyMG1vZGVybiUyMHRvb2xzfGVufDB8fHx8MTc3MjAwMDgxNXww&ixlib=rb-4.1.0&q=85"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "stroke-width={1.5} className='w-6 h-6'"
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. THEME SETUP: Use Light Mode by default. The 'Deep Blue' is strong, use it for headers and primary buttons, but keep the page body white/slate-50.",
+    "2. MOBILE NAVIGATION: Implement a fixed bottom navigation bar for the Customer view (Home, Bookings, Profile). Hide it for Admin/Provider.",
+    "3. TYPOGRAPHY: Import 'Poppins' from Google Fonts immediately in index.css. Apply it to all headings (h1-h6). Keep 'Inter' for body.",
+    "4. BORDER RADIUS: Use 'rounded-xl' (12px) for cards and 'rounded-full' for buttons. Avoid sharp corners (0px) or small radius (4px).",
+    "5. SHADOWS: Use 'shadow-sm' for lists and 'shadow-xl' for floating action buttons (FAB) or sticky bottom CTAs.",
+    "6. AUTH FLOW: Split the login: 'Customer Login' vs 'Partner Login'. Use a tab switcher.",
+    "7. DATA-TESTID: Add 'data-testid' to every interactive element (buttons, inputs, links). Format: 'category-item-plumbing', 'btn-book-now'.",
+    "8. EMPTY STATES: Never leave a list empty. If no bookings, show a 'No bookings yet' state with a CTA to 'Find a Service'."
+  ],
+  "universal_guidelines": [
+    "Don't make generic centered layouts.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) for sticky headers/navs.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Subtle grain textures or noise overlays can separate good from extraordinary.",
+    "Every interaction needs micro-animations (hover, active, focus)."
+  ]
+}
