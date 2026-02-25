@@ -87,14 +87,14 @@ const ProvidersPage = () => {
         <div className="bg-white rounded-xl p-4 mb-6 shadow-sm">
           <div className="flex flex-wrap gap-4">
             <Select 
-              value={filters.category} 
-              onValueChange={(v) => setFilters({ ...filters, category: v, sub_service: '' })}
+              value={filters.category || "all"} 
+              onValueChange={(v) => setFilters({ ...filters, category: v === "all" ? "" : v, sub_service: '' })}
             >
               <SelectTrigger className="w-[200px]" data-testid="filter-category">
                 <SelectValue placeholder="All Categories" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Categories</SelectItem>
+                <SelectItem value="all">All Categories</SelectItem>
                 {categories.map((cat) => (
                   <SelectItem key={cat.id} value={cat.id}>{cat.name}</SelectItem>
                 ))}
